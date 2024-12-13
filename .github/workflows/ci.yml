@@ -32,6 +32,7 @@ jobs:
 
       - name: Run pytest and generate Allure report
         run: |
+          source .venv/bin/activate
           pytest --alluredir=allure-results
 
       - name: Load test report history
@@ -50,10 +51,15 @@ jobs:
           allure_history: allure-history
           allure_results: allure-results
 
+      - name: Clean up .git directory
+        if: always()
+        run: |
+          rm -rf allure-history/.git
+
       - name: Publish Allure report
         uses: peaceiris/actions-gh-pages@v3
         if: always()
         with:
-          github_token: ${{ secrets.CI_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: allure-history
