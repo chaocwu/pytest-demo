@@ -51,11 +51,6 @@ jobs:
           allure_history: allure-history
           allure_results: allure-results
 
-      - name: Clean up .git directory
-        if: always()
-        run: |
-          rm -rf allure-history/.git
-
       - name: Publish Allure report
         uses: peaceiris/actions-gh-pages@v3
         if: always()
