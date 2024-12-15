@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"9caab792355061bb45faaddd8387add0","name":"Tests for web interface","statistic":{"failed":0,"broken":0,"skipped":0,"passed":29,"unknown":0,"total":29}},{"uid":"79a12cbd4eb66ea754bf5b3ad9ed8041","name":"test_example","statistic":{"failed":0,"broken":0,"skipped":0,"passed":29,"unknown":0,"total":29}}]}
