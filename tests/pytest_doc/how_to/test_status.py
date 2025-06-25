@@ -1,4 +1,4 @@
-from random import randint
+import random
 import pytest
 
 
@@ -7,7 +7,7 @@ def test_passed():
 
 
 def test_failed():
-    assert False
+    assert random.choice([True, False]), "This test passed or failed randomly"
 
 
 @pytest.mark.skip(reason="This test is skipped")
@@ -17,8 +17,3 @@ def test_skipped():
 
 def test_broken():
     raise Exception("This test is broken")
-
-
-@pytest.mark.parametrize("value", [randint(2, 4) for _ in range(2)])
-def test_parametrized(value):
-    assert value % 2 == 0, f"Value {value} is not even"
