@@ -17,3 +17,13 @@ def test_skipped():
 
 def test_broken():
     raise Exception("This test is broken")
+
+
+def probabilistic_success(success_rate: float) -> bool:
+    return random.random() < success_rate
+
+
+@pytest.mark.parametrize("run_id", range(100))
+def test_success_rate(run_id: int):
+    success = probabilistic_success(0.95)
+    assert success, f"测试 {run_id} 失败"
